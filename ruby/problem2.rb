@@ -16,22 +16,21 @@ class TC_MyTest < Test::Unit::TestCase
 end
 
 class Array
-	def sum_evens
-		select{ |a| a % 2 == 0 }.reduce(:+)
-	end
+  def sum_evens
+    select{ |a| a % 2 == 0 }.reduce(:+)
+  end
 end
 
 def fibonacci_sequence(n)
-	sequence = []
+  sequence = []
 
-	(0..n).inject([0,1]) do |a,b| 
-		sum_last_two = a.last(2).reduce(:+)
-		break if sum_last_two >= 4000000  
+  (0..n).inject([0,1]) do |a,b| 
+    sum_last_two = a.last(2).reduce(:+)
+    break if sum_last_two >= 4000000  
 
-		sequence << sum_last_two
-	end
-	
-	p "Sum of even-valued terms of fibonacci sequence up to #{n} is: #{sequence.uniq.sum_evens}"
+    sequence << sum_last_two
+  end
 
-	sequence.uniq.sum_evens
+  p "Sum of even-valued terms of fibonacci sequence up to #{n} is: #{sequence.uniq.sum_evens}"
+  sequence.uniq.sum_evens
 end
